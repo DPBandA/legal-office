@@ -26,7 +26,7 @@ Email: info@dpbennett.com.jm
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
     <ui:include src="documentBrowserToolbar.xhtml" />
-        
+
     <p:dataTable id="documentTable"
                  var="document"
                  paginator="true"
@@ -102,12 +102,17 @@ Email: info@dpbennett.com.jm
                         value="Delete"
                         icon="ui-icon-trash" 
                         style="width: 300%;text-align: left;background: none;border: 0;"
-                        onclick="documentDeleteConfirm.show();" 
+                        onstart="PF('longProcessDialogVar').show();"  
+                        oncomplete="PF('longProcessDialogVar').hide();"
+                        actionListener="#{legalDocumentManager.deleteDocumentConfirmDialog}"
                         process="@this" >
 
                         <f:setPropertyActionListener value="#{document}"
                                                      target="#{legalDocumentManager.selectedDocument}" />
-
+                        
+                        <p:ajax event="dialogReturn" 
+                                update="documentTable,:headerForm:growl3" />
+                       
                     </p:commandButton>
                 </p:menuitem>
             </p:menuButton>   

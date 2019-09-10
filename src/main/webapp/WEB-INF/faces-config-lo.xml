@@ -10,6 +10,13 @@
             <to-view-id>/legal/legalDocumentDialog.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>legalDocumentDeleteConfirmDialog</from-outcome>
+            <to-view-id>/legal/legalDocumentDeleteConfirmDialog.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule> 
     
     <managed-bean>
         <managed-bean-name>legalDocumentManager</managed-bean-name>

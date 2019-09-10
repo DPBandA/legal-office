@@ -17,7 +17,7 @@ and open the template in the editor.
                      width="300">
         <h:form id="documentDeleteConfirmForm">
             <p:commandButton value="Yes"
-                             update=""
+                             update=":mainTabViewForm:mainTabView:documentTable"
                              action="#{legalDocumentManager.deleteDocument}"
                              onclick="documentDeleteConfirm.hide()"
                              icon="ui-icon ui-icon-check"
