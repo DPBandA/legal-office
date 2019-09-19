@@ -34,22 +34,23 @@ Email: info@dpbennett.com.jm
     <h:body>
         <h:form id="legalDocumentDeleteConfirmDialogForm">           
             <p:growl id="growl" life="5000" showDetail="true" />
-            
-            <h:panelGrid cellpadding="5">
-                <h:panelGroup>
-                    <h:outputText value="Are you sure you wish to delete this document record?" />                    
-                </h:panelGroup>
-                <h:panelGroup >                        
-                    <p:commandButton value="Yes"      
-                                     actionListener="#{legalDocumentManager.deleteDocument}" 
-                                     icon="ui-icon ui-icon-check"
-                                     process="@this"/>
-                    <p:spacer height="0" width="5"/>
-                    <p:commandButton value="No"
-                                     actionListener="#{legalDocumentManager.closeDialog}" 
-                                     icon="ui-icon-close"/>   
-                </h:panelGroup>
-            </h:panelGrid>
+            <p:panel style="border: 0">
+                <h:panelGrid cellpadding="5">
+                    <h:panelGroup>
+                        <h:outputText value="Are you sure you wish to delete this document record?" />                    
+                    </h:panelGroup>
+                    <h:panelGroup >                        
+                        <p:commandButton value="Yes"      
+                                         actionListener="#{legalDocumentManager.deleteDocument}" 
+                                         icon="ui-icon ui-icon-check"
+                                         process="@this"/>
+                        <p:spacer height="0" width="5"/>
+                        <p:commandButton value="No"
+                                         actionListener="#{legalDocumentManager.closeDialog}" 
+                                         icon="ui-icon-close"/>   
+                    </h:panelGroup>
+                </h:panelGrid>
+            </p:panel>
         </h:form>
     </h:body>
 </html>
