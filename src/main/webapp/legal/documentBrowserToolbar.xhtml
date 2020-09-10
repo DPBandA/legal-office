@@ -42,47 +42,41 @@ Email: info@dpbennett.com.jm
                 </p:commandButton>
             </ui:remove>
             <p:menuButton value="New">   
-                <p:menuitem>
-                    <p:commandButton
-                        actionListener="#{legalDocumentManager.createNewLegalDocument}"
-                        style="width: 300%;text-align: left;background: none;border: 0;"
-                        onstart="PF('longProcessDialogVar').show();"                 
-                        oncomplete="PF('longProcessDialogVar').hide();"
-                        onerror="PF('connectionErrorDialog').show();"
-                        value="Document"       
-                        update="headerForm:growl3"
-                        title="Add a new document"
-                        icon="ui-icon-plus"
-                        process="@this" >
+                <p:menuitem
+                    actionListener="#{legalDocumentManager.createNewLegalDocument}"
+                    onstart="PF('longProcessDialogVar').show();"                 
+                    oncomplete="PF('longProcessDialogVar').hide();"
+                    onerror="PF('connectionErrorDialog').show();"
+                    value="Document"       
+                    update="headerForm:growl3"
+                    title="Add a new document"
+                    icon="ui-icon-plus"
+                    process="@this" >
 
-                        <p:ajax event="dialogReturn" 
-                                update=":mainTabViewForm:mainTabView,:headerForm:growl3"
-                                listener="#{legalDocumentManager.documentDialogReturn}" />
+                    <p:ajax event="dialogReturn" 
+                            update=":mainTabViewForm:mainTabView,:headerForm:growl3"
+                            listener="#{legalDocumentManager.documentDialogReturn}" />
 
-                    </p:commandButton>
                 </p:menuitem>
-                <p:menuitem >       
-                    <p:commandButton 
-                        value="Document type"
-                        icon="ui-icon-plus" 
-                        style="width: 300%;text-align: left;background: none;border: 0;"
-                        onstart="PF('longProcessDialogVar').show();" 
-                        oncomplete="PF('longProcessDialogVar').hide();"
-                        actionListener="#{legalDocumentManager.createNewDocumentType}"                                            
-                        process="@this"
-                        title="Add a new document type" />
-                </p:menuitem>
-                <p:menuitem >
-                    <p:commandButton 
-                        value="Classification"
-                        icon="ui-icon-plus" 
-                        style="width: 300%;text-align: left;background: none;border: 0;"
-                        onstart="PF('longProcessDialogVar').show();" 
-                        oncomplete="PF('longProcessDialogVar').hide();"
-                        actionListener="#{legalDocumentManager.createNewClassification}"                                            
-                        process="@this"
-                        title="Add a new classification" />
-                </p:menuitem>
+
+                <p:menuitem  
+                    value="Document type"
+                    icon="ui-icon-plus" 
+                    onstart="PF('longProcessDialogVar').show();" 
+                    oncomplete="PF('longProcessDialogVar').hide();"
+                    actionListener="#{legalDocumentManager.createNewDocumentType}"                                            
+                    process="@this"
+                    title="Add a new document type" />
+
+                <p:menuitem  
+                    value="Classification"
+                    icon="ui-icon-plus" 
+                    onstart="PF('longProcessDialogVar').show();" 
+                    oncomplete="PF('longProcessDialogVar').hide();"
+                    actionListener="#{legalDocumentManager.createNewClassification}"                                            
+                    process="@this"
+                    title="Add a new classification" />
+
             </p:menuButton>   
         </p:toolbarGroup>
     </p:toolbar>

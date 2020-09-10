@@ -127,41 +127,35 @@ Email: info@dpbennett.com.jm
 
                             </p:autoComplete>                           
                             <p:menuButton id="clientActionsMenu" icon="ui-icon-pencil" >
-                                <p:menuitem>                       
-                                    <p:commandButton value="Edit client"
-                                                     icon="ui-icon-pencil" 
-                                                     disabled="${!legalDocumentManager.isClientNameValid}"
-                                                     style="width: 300%;text-align: left;background: none;border: 0;"
-                                                     onstart="PF('longProcessDialogVar').show();"     
-                                                     oncomplete="PF('longProcessDialogVar').hide();"                                
-                                                     actionListener="#{legalDocumentManager.editExternalClient}"  
-                                                     process="@this,client"                             
-                                                     title="Edit this client's detail">  
+                                <p:menuitem value="Edit client"
+                                            icon="ui-icon-pencil" 
+                                            disabled="${!legalDocumentManager.isClientNameValid}"
+                                            onstart="PF('longProcessDialogVar').show();"     
+                                            oncomplete="PF('longProcessDialogVar').hide();"                                
+                                            actionListener="#{legalDocumentManager.editExternalClient}"  
+                                            process="@this,client"                             
+                                            title="Edit this client's detail">  
 
-                                        <p:ajax event="dialogReturn" 
-                                                listener="#{legalDocumentManager.externalClientDialogReturn}"
-                                                update="client" />
+                                    <p:ajax event="dialogReturn" 
+                                            listener="#{legalDocumentManager.externalClientDialogReturn}"
+                                            update="client" />
 
-                                    </p:commandButton>            
                                 </p:menuitem>
 
-                                <p:menuitem >       
-                                    <p:commandButton 
-                                        value="Add new client"
-                                        icon="ui-icon-plus" 
-                                        style="width: 300%;text-align: left;background: none;border: 0;"
-                                        onstart="PF('longProcessDialogVar').show();"        
-                                        oncomplete="PF('longProcessDialogVar').hide();"                
-                                        disabled="#{!legalDocumentManager.user.privilege.canAddClient}"
-                                        actionListener="#{legalDocumentManager.createNewExternalClient}"                                            
-                                        process="@this"
-                                        title="Add a new client to the client database">
+                                <p:menuitem 
+                                    value="Add new client"
+                                    icon="ui-icon-plus" 
+                                    onstart="PF('longProcessDialogVar').show();"        
+                                    oncomplete="PF('longProcessDialogVar').hide();"                
+                                    disabled="#{!legalDocumentManager.user.privilege.canAddClient}"
+                                    actionListener="#{legalDocumentManager.createNewExternalClient}"                                            
+                                    process="@this"
+                                    title="Add a new client to the client database">
 
-                                        <p:ajax event="dialogReturn" 
-                                                listener="#{legalDocumentManager.externalClientDialogReturn}"
-                                                update="client" />
+                                    <p:ajax event="dialogReturn" 
+                                            listener="#{legalDocumentManager.externalClientDialogReturn}"
+                                            update="client" />
 
-                                    </p:commandButton>
                                 </p:menuitem>
                             </p:menuButton>    
                             <p:watermark for="client" value="select a client"/>
@@ -211,40 +205,35 @@ Email: info@dpbennett.com.jm
                             </p:autoComplete>
                             <p:spacer height="0" width="4"/>                           
                             <p:menuButton icon="ui-icon-pencil" title="Edit or add new type">
-                                <p:menuitem>                       
-                                    <p:commandButton value="Edit"
-                                                     icon="ui-icon-pencil" 
-                                                     style="width: 300%;text-align: left;background: none;border: 0;"
-                                                     onstart="PF('longProcessDialogVar').show();"  
-                                                     oncomplete="PF('longProcessDialogVar').hide();"
-                                                     actionListener="#{legalDocumentManager.editDocumentType}" 
-                                                     process="@this"
-                                                     title="Edit document type" >     
+                                <p:menuitem value="Edit"
+                                            icon="ui-icon-pencil" 
+                                            onstart="PF('longProcessDialogVar').show();"  
+                                            oncomplete="PF('longProcessDialogVar').hide();"
+                                            actionListener="#{legalDocumentManager.editDocumentType}" 
+                                            process="@this"
+                                            title="Edit document type" >     
 
-                                        <p:ajax event="dialogReturn" 
-                                                listener="#{legalDocumentManager.documentTypeDialogReturn}"
-                                                process="@this"
-                                                update="documentType,currentDocumentNumber" />
+                                    <p:ajax event="dialogReturn" 
+                                            listener="#{legalDocumentManager.documentTypeDialogReturn}"
+                                            process="@this"
+                                            update="documentType,currentDocumentNumber" />
 
-                                    </p:commandButton>
-                                </p:menuitem>                                
-                                <p:menuitem >       
-                                    <p:commandButton 
-                                        value="New"
-                                        icon="ui-icon-plus" 
-                                        style="width: 300%;text-align: left;background: none;border: 0;"
-                                        onstart="PF('longProcessDialogVar').show();" 
-                                        oncomplete="PF('longProcessDialogVar').hide();"
-                                        actionListener="#{legalDocumentManager.createNewDocumentType}"                                            
-                                        process="@this"
-                                        title="Add a new document type">
+                                </p:menuitem>           
 
-                                        <p:ajax event="dialogReturn" 
-                                                listener="#{legalDocumentManager.documentTypeDialogReturn}"
-                                                process="@this"
-                                                update="documentType,currentDocumentNumber" />
+                                <p:menuitem 
+                                    value="New"
+                                    icon="ui-icon-plus" 
+                                    onstart="PF('longProcessDialogVar').show();" 
+                                    oncomplete="PF('longProcessDialogVar').hide();"
+                                    actionListener="#{legalDocumentManager.createNewDocumentType}"                                            
+                                    process="@this"
+                                    title="Add a new document type">
 
-                                    </p:commandButton>
+                                    <p:ajax event="dialogReturn" 
+                                            listener="#{legalDocumentManager.documentTypeDialogReturn}"
+                                            process="@this"
+                                            update="documentType,currentDocumentNumber" />
+
                                 </p:menuitem>
                             </p:menuButton>   
                         </h:panelGroup>
@@ -272,38 +261,33 @@ Email: info@dpbennett.com.jm
                             </p:autoComplete>
                             <p:spacer height="0" width="4"/>                           
                             <p:menuButton icon="ui-icon-pencil" title="Edit or add new classification">
-                                <p:menuitem>                       
-                                    <p:commandButton value="Edit"
-                                                     icon="ui-icon-pencil" 
-                                                     style="width: 300%;text-align: left;background: none;border: 0;"
-                                                     onstart="PF('longProcessDialogVar').show();"  
-                                                     oncomplete="PF('longProcessDialogVar').hide();"
-                                                     actionListener="#{legalDocumentManager.editClassification}" 
-                                                     process="@this,classification"  
-                                                     title="Edit classification" >   
+                                <p:menuitem value="Edit"
+                                            icon="ui-icon-pencil" 
+                                            onstart="PF('longProcessDialogVar').show();"  
+                                            oncomplete="PF('longProcessDialogVar').hide();"
+                                            actionListener="#{legalDocumentManager.editClassification}" 
+                                            process="@this,classification"  
+                                            title="Edit classification" >   
 
-                                        <p:ajax event="dialogReturn" 
-                                                listener="#{legalDocumentManager.classificationDialogReturn}"
-                                                update="classification" />
+                                    <p:ajax event="dialogReturn" 
+                                            listener="#{legalDocumentManager.classificationDialogReturn}"
+                                            update="classification" />
 
-                                    </p:commandButton>
-                                </p:menuitem>                                
-                                <p:menuitem >       
-                                    <p:commandButton 
-                                        value="New"
-                                        icon="ui-icon-plus" 
-                                        style="width: 300%;text-align: left;background: none;border: 0;"
-                                        onstart="PF('longProcessDialogVar').show();" 
-                                        oncomplete="PF('longProcessDialogVar').hide();"
-                                        actionListener="#{legalDocumentManager.createNewClassification}"                                            
-                                        process="@this"
-                                        title="Add a new classification">
+                                </p:menuitem>   
 
-                                        <p:ajax event="dialogReturn" 
-                                                listener="#{legalDocumentManager.classificationDialogReturn}"
-                                                update="classification" />
+                                <p:menuitem  
+                                    value="New"
+                                    icon="ui-icon-plus" 
+                                    onstart="PF('longProcessDialogVar').show();" 
+                                    oncomplete="PF('longProcessDialogVar').hide();"
+                                    actionListener="#{legalDocumentManager.createNewClassification}"                                            
+                                    process="@this"
+                                    title="Add a new classification">
 
-                                    </p:commandButton>
+                                    <p:ajax event="dialogReturn" 
+                                            listener="#{legalDocumentManager.classificationDialogReturn}"
+                                            update="classification" />
+
                                 </p:menuitem>
                             </p:menuButton>   
                         </h:panelGroup>

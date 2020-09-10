@@ -79,42 +79,37 @@ Email: info@dpbennett.com.jm
         <p:column style="width:32px">
 
             <p:menuButton icon="ui-icon-pencil" title="Edit or delete">
-                <p:menuitem>                       
-                    <p:commandButton value="View or edit"                                  
-                                     icon="ui-icon ui-icon-pencil" 
-                                     style="width: 300%;text-align: left;background: none;border: 0;"                                    
-                                     onstart="PF('longProcessDialogVar').show();"  
-                                     oncomplete="PF('longProcessDialogVar').hide();"
-                                     actionListener="#{legalDocumentManager.editDocument}" 
-                                     process="@this" >      
+                <p:menuitem value="View or edit"                                  
+                            icon="ui-icon ui-icon-pencil"                                    
+                            onstart="PF('longProcessDialogVar').show();"  
+                            oncomplete="PF('longProcessDialogVar').hide();"
+                            actionListener="#{legalDocumentManager.editDocument}" 
+                            process="@this" >      
 
-                        <f:setPropertyActionListener value="#{document}"
-                                                     target="#{legalDocumentManager.currentDocument}" />
+                    <f:setPropertyActionListener value="#{document}"
+                                                 target="#{legalDocumentManager.currentDocument}" />
 
-                        <p:ajax event="dialogReturn" 
-                                listener="#{legalDocumentManager.documentDialogReturn}"
-                                update="documentTable,:headerForm:growl3" />
+                    <p:ajax event="dialogReturn" 
+                            listener="#{legalDocumentManager.documentDialogReturn}"
+                            update="documentTable,:headerForm:growl3" />
 
-                    </p:commandButton>
                 </p:menuitem>       
-                <p:menuitem >       
-                    <p:commandButton 
-                        value="Delete"
-                        icon="ui-icon-trash" 
-                        style="width: 300%;text-align: left;background: none;border: 0;"
-                        onstart="PF('longProcessDialogVar').show();"  
-                        oncomplete="PF('longProcessDialogVar').hide();"
-                        actionListener="#{legalDocumentManager.deleteDocumentConfirmDialog}"
-                        process="@this" >
+                <p:menuitem
+                    value="Delete"
+                    icon="ui-icon-trash" 
+                    onstart="PF('longProcessDialogVar').show();"  
+                    oncomplete="PF('longProcessDialogVar').hide();"
+                    actionListener="#{legalDocumentManager.deleteDocumentConfirmDialog}"
+                    process="@this" >
 
-                        <f:setPropertyActionListener value="#{document}"
-                                                     target="#{legalDocumentManager.selectedDocument}" />
-                        
-                        <p:ajax event="dialogReturn" 
-                                update="documentTable,:headerForm:growl3" />
-                       
-                    </p:commandButton>
+                    <f:setPropertyActionListener value="#{document}"
+                                                 target="#{legalDocumentManager.selectedDocument}" />
+
+                    <p:ajax event="dialogReturn" 
+                            update="documentTable,:headerForm:growl3" />
+
                 </p:menuitem>
+                
             </p:menuButton>   
 
         </p:column>
