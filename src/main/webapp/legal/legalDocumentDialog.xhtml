@@ -48,7 +48,7 @@ Email: info@dpbennett.com.jm
                 <p:tab title="General" >
                     <h:panelGrid columns="2" id="general">
 
-                        <h:outputText value="Document #:" style="font-weight: bold;" />
+                        <h:outputText value="Document #" style="font-weight: bold;" />
                         <h:panelGroup>
                             <p:inputText value="#{legalDocumentManager.currentDocument.number}"
                                          id="currentDocumentNumber"
@@ -75,7 +75,7 @@ Email: info@dpbennett.com.jm
                             </p:selectBooleanCheckbox>
                         </h:panelGroup>
 
-                        <h:outputText value="Priority level:" style="font-weight: bold;" />
+                        <h:outputText value="Priority level" style="font-weight: bold;" />
                         <p:selectOneMenu value="#{legalDocumentManager.currentDocument.priorityLevel}" >
 
                             <p:ajax listener="#{legalDocumentManager.updateDocument}"
@@ -84,7 +84,7 @@ Email: info@dpbennett.com.jm
                             <f:selectItems value="#{legalDocumentManager.priorityLevels}"/>
                         </p:selectOneMenu>
 
-                        <h:outputText value="Requesting department:" style="font-weight: bold;" />                       
+                        <h:outputText value="Requesting department" style="font-weight: bold;" />                       
                         <p:autoComplete var="department"
                                         forceSelection="true"      
                                         dropdown="true"
@@ -104,7 +104,7 @@ Email: info@dpbennett.com.jm
 
                         </p:autoComplete> 
 
-                        <h:outputText value="External client:" />
+                        <h:outputText value="External client" />
                         <h:panelGroup>
                             <p:autoComplete id="client"
                                             widgetVar="clientVar"
@@ -157,7 +157,7 @@ Email: info@dpbennett.com.jm
                             <p:watermark for="client" value="select a client"/>
                         </h:panelGroup>
 
-                        <h:outputText value="Requesting employee:" style="font-weight: bold;" />
+                        <h:outputText value="Requesting employee" style="font-weight: bold;" />
                         <p:autoComplete id="submittedBy"  
                                         maxlength="40"
                                         scrollHeight="200" 
@@ -177,7 +177,7 @@ Email: info@dpbennett.com.jm
                         </p:autoComplete>
 
 
-                        <h:outputText value="Document type: " style="font-weight: bold;" />
+                        <h:outputText value="Document type" style="font-weight: bold;" />
                         <h:panelGroup>                           
                             <p:autoComplete var="documentType"
                                             id="documentType"
@@ -230,7 +230,7 @@ Email: info@dpbennett.com.jm
                             </p:menuButton>   
                         </h:panelGroup>
 
-                        <h:outputText value="Classification:" style="font-weight: bold;" />
+                        <h:outputText value="Classification" style="font-weight: bold;" />
                         <h:panelGroup>
                             <p:autoComplete dropdown="true"
                                             var="classification"
@@ -281,7 +281,7 @@ Email: info@dpbennett.com.jm
                             </p:menuButton>   
                         </h:panelGroup>
 
-                        <h:outputText value="Document form:" style="font-weight: bold;" />
+                        <h:outputText value="Document form" style="font-weight: bold;" />
                         <p:selectOneMenu value="#{legalDocumentManager.currentDocument.documentForm}" >
 
                             <p:ajax listener="#{legalDocumentManager.updateDocument}"
@@ -292,7 +292,7 @@ Email: info@dpbennett.com.jm
 
                         </p:selectOneMenu>
 
-                        <h:outputText value="Date received:" style="font-weight: bold;" />
+                        <h:outputText value="Date received" style="font-weight: bold;" />
                         <p:calendar id="dateReceived"
                                     value="#{legalDocumentManager.currentDocument.dateReceived}"
                                     readonlyInput="true"
@@ -306,7 +306,7 @@ Email: info@dpbennett.com.jm
 
                         </p:calendar>
 
-                        <h:outputText value="Particulars:" />
+                        <h:outputText value="Particulars" />
                         <p:inputTextarea value="#{legalDocumentManager.currentDocument.description}"
                                          id="documentDescription"
                                          rows="3"
@@ -323,7 +323,7 @@ Email: info@dpbennett.com.jm
 
                         </p:inputTextarea>
 
-                        <h:outputText value="Nature of request:" />
+                        <h:outputText value="Nature of request" />
                         <p:inputTextarea value="#{legalDocumentManager.currentDocument.workPerformedOnDocument}"
                                          id="workPerformedOnDocument"
                                          rows="2"
@@ -358,7 +358,7 @@ Email: info@dpbennett.com.jm
 
                 <p:tab title="Tracking">
                     <h:panelGrid columns="2">
-                        <h:outputText value="Department responsible:" style="font-weight: bold;" />                       
+                        <h:outputText value="Department responsible" style="font-weight: bold;" />                       
                         <p:autoComplete var="department"
                                         forceSelection="true"      
                                         dropdown="true"
@@ -378,7 +378,7 @@ Email: info@dpbennett.com.jm
 
                         </p:autoComplete> 
 
-                        <h:outputText value="Officer responsible:" style="font-weight: bold;" />
+                        <h:outputText value="Officer responsible" style="font-weight: bold;" />
                         <p:autoComplete id="officerResponsible"   
                                         maxlength="40"
                                         scrollHeight="200" 
@@ -399,7 +399,7 @@ Email: info@dpbennett.com.jm
 
                         </p:autoComplete>
 
-                        <h:outputText value="Agreed delivery date:" />
+                        <h:outputText value="Agreed delivery date" />
                         <p:calendar id="expectedDeliveryDate"
                                     value="#{legalDocumentManager.currentDocument.expectedDateOfCompletion}"
                                     readonlyInput="true"
@@ -412,7 +412,7 @@ Email: info@dpbennett.com.jm
 
                         </p:calendar>
 
-                        <h:outputText value="Delivery date:" />
+                        <h:outputText value="Delivery date" />
                         <p:calendar id="deliveryDate"
                                     value="#{legalDocumentManager.currentDocument.dateOfCompletion}"
                                     readonlyInput="true"
@@ -425,7 +425,7 @@ Email: info@dpbennett.com.jm
 
                         </p:calendar>
 
-                        <h:outputText value="Set turnaround time (working days):" />
+                        <h:outputText value="Set turnaround time (working days)" />
                         <p:inputText value="#{legalDocumentManager.currentDocument.turnaroundTime}"
                                      id="turnAroundTime"
                                      converterMessage="Invalid Turnaround Time (TAT)" 
@@ -441,7 +441,7 @@ Email: info@dpbennett.com.jm
 
                         </p:inputText>
 
-                        <h:outputText value="Actual turnaround time (working days):" />
+                        <h:outputText value="Actual turnaround time (working days)" />
                         <p:inputText value="#{legalDocumentManager.currentDocument.actualTurnaroundTime}"
                                      id="actualTurnaroundTime"
                                      styleClass="read-only-text-field"
@@ -453,7 +453,7 @@ Email: info@dpbennett.com.jm
 
                         </p:inputText>
 
-                        <h:outputText value="Status:" />                       
+                        <h:outputText value="Status" />                       
                         <p:selectOneMenu value="#{legalDocumentManager.currentDocument.status}" >
 
                             <p:ajax listener="#{legalDocumentManager.updateDocument}"
@@ -463,7 +463,7 @@ Email: info@dpbennett.com.jm
 
                         </p:selectOneMenu>
 
-                        <h:outputText value="Comment:" />
+                        <h:outputText value="Comment" />
                         <p:inputTextarea value="#{legalDocumentManager.currentDocument.comments}"
                                          style="width: 300px">
 

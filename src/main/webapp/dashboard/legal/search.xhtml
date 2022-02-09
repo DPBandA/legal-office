@@ -26,7 +26,7 @@ Email: info@dpbennett.com.jm
 
     <p:panel id="documentSearchPanel" header="Document Search" >
         <h:panelGrid columns="2" cellspacing="5">
-            <h:outputText value="Search type: " />
+            <h:outputText value="Search type" />
             <p:selectOneMenu value="#{legalDocumentManager.searchType}" style="width: 90%;" >
 
                 <p:ajax update="searchText"
@@ -38,7 +38,7 @@ Email: info@dpbennett.com.jm
 
             </p:selectOneMenu>
 
-            <h:outputText value="Date field: " />
+            <h:outputText value="Date field" />
             <p:selectOneMenu value="#{legalDocumentManager.dateSearchPeriod.dateField}" style="width: 90%;" >
 
                 <p:ajax update="searchText"
@@ -50,7 +50,7 @@ Email: info@dpbennett.com.jm
 
             </p:selectOneMenu>
 
-            <h:outputText value="Date period: " />
+            <h:outputText value="Date period" />
             <p:selectOneMenu value="#{legalDocumentManager.dateSearchPeriod.name}" style="width: 90%;" >
                 <p:ajax update="legalDocStartSearchDate,legalDocEndSearchDate"
                         listener="#{legalDocumentManager.updateDatePeriodSearch}"
@@ -58,7 +58,7 @@ Email: info@dpbennett.com.jm
                 <f:selectItems value="#{systemManager.datePeriods}" />
             </p:selectOneMenu >
 
-            <h:outputText value="Start date:"/>
+            <h:outputText value="Start date"/>
             <p:calendar id="legalDocStartSearchDate"
                         value="#{legalDocumentManager.dateSearchPeriod.startDate}"
                         navigator="true"
@@ -70,7 +70,7 @@ Email: info@dpbennett.com.jm
                         listener="#{legalDocumentManager.handleStartSearchDateSelect}" />
             </p:calendar>
 
-            <h:outputText value="End date:"/>
+            <h:outputText value="End date"/>
             <p:calendar id="legalDocEndSearchDate"
                         value="#{legalDocumentManager.dateSearchPeriod.endDate}"
                         navigator="true"
