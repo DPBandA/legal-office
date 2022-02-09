@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-Job Management & Tracking System (JMTS) 
-Copyright (C) 2017  D P Bennett & Associates Limited
+Legal Office (LO) 
+Copyright (C) 2022  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
@@ -78,11 +78,10 @@ Email: info@dpbennett.com.jm
         </p:column>
         <p:column style="width:32px">
 
-            <p:menuButton icon="ui-icon-pencil" title="Edit or delete">
+            <p:menuButton icon="pi pi-pencil" 
+                          title="Edit or delete">
                 <p:menuitem value="View or edit"                                  
-                            icon="ui-icon ui-icon-pencil"                                    
-                            onstart="PF('longProcessDialogVar').show();"  
-                            oncomplete="PF('longProcessDialogVar').hide();"
+                            icon="pi pi-pencil" 
                             actionListener="#{legalDocumentManager.editDocument}" 
                             process="@this" >      
 
@@ -91,14 +90,12 @@ Email: info@dpbennett.com.jm
 
                     <p:ajax event="dialogReturn" 
                             listener="#{legalDocumentManager.documentDialogReturn}"
-                            update="documentTable,:headerForm:growl3" />
+                            update="documentTable" />
 
                 </p:menuitem>       
                 <p:menuitem
                     value="Delete"
-                    icon="ui-icon-trash" 
-                    onstart="PF('longProcessDialogVar').show();"  
-                    oncomplete="PF('longProcessDialogVar').hide();"
+                    icon="pi pi-trash" 
                     actionListener="#{legalDocumentManager.deleteDocumentConfirmDialog}"
                     process="@this" >
 
@@ -106,7 +103,7 @@ Email: info@dpbennett.com.jm
                                                  target="#{legalDocumentManager.selectedDocument}" />
 
                     <p:ajax event="dialogReturn" 
-                            update="documentTable,:headerForm:growl3" />
+                            update="documentTable" />
 
                 </p:menuitem>
                 

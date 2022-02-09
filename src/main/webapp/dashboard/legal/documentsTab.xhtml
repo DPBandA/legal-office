@@ -1,6 +1,6 @@
 <!--
-Job Management & Tracking System (JMTS) 
-Copyright (C) 2017  D P Bennett & Associates Limited
+Legal Office (LO) 
+Copyright (C) 2022  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
@@ -27,35 +27,27 @@ Email: info@dpbennett.com.jm
             <p:menuButton value="New">   
                 <p:menuitem
                     actionListener="#{legalDocumentManager.createNewLegalDocument}"
-                    onstart="PF('longProcessDialogVar').show();"                 
-                    oncomplete="PF('longProcessDialogVar').hide();"
-                    onerror="PF('connectionErrorDialog').show();"
-                    value="Document"       
-                    update="headerForm:growl3"
+                    value="Document" 
                     title="Add a new document"
-                    icon="ui-icon-plus"
+                    icon="pi pi-plus"
                     process="@this" >
 
                     <p:ajax event="dialogReturn" 
-                            update=":mainTabViewForm:mainTabView,:headerForm:growl3"
+                            update=":appForm:mainTabView"
                             listener="#{legalDocumentManager.documentDialogReturn}" />
 
                 </p:menuitem>
                 
                 <p:menuitem  
                         value="Document type"
-                        icon="ui-icon-plus" 
-                        onstart="PF('longProcessDialogVar').show();" 
-                        oncomplete="PF('longProcessDialogVar').hide();"
+                        icon="pi pi-plus" 
                         actionListener="#{legalDocumentManager.createNewDocumentType}"                                            
                         process="@this"
                         title="Add a new document type" />
                 
                 <p:menuitem 
                         value="Classification"
-                        icon="ui-icon-plus" 
-                        onstart="PF('longProcessDialogVar').show();" 
-                        oncomplete="PF('longProcessDialogVar').hide();"
+                        icon="pi pi-plus" 
                         actionListener="#{legalDocumentManager.createNewClassification}"                                            
                         process="@this"
                         title="Add a new classification" />
@@ -66,15 +58,11 @@ Email: info@dpbennett.com.jm
         <p:toolbarGroup align="right">
             <p:menuButton value="Tools" >  
                 <p:menuitem value="Documents Browser"
-                            onstart="PF('longProcessDialogVar').show();" 
-                            oncomplete="PF('longProcessDialogVar').hide();"
                             actionListener="#{legalDocumentManager.openDocumentBrowser}"                            
                             process="@this"/>                   
                 <p:separator />
-                <p:menuitem value="Reports"
-                            onstart="PF('longProcessDialogVar').show();"                                                    
+                <p:menuitem value="Reports"                                                   
                             actionListener="#{legalDocumentManager.openReportsTab}"
-                            oncomplete="PF('longProcessDialogVar').hide();"
                             process="@this"/>
 
             </p:menuButton>         

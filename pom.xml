@@ -7,7 +7,7 @@
     <version>1.0.0</version>
     <packaging>war</packaging>
 
-    <name>Legal Office</name>
+    <name>LO, v1</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
@@ -30,6 +30,12 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>report-management</artifactId>
             <version>2.0.0</version>
+            <type>war</type>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>financial-management</artifactId>
+            <version>1.0.0</version>
             <type>war</type>
         </dependency>
     </dependencies>
@@ -65,6 +71,15 @@
                         <overlay>
                             <groupId>${project.groupId}</groupId>
                             <artifactId>report-management</artifactId>
+                            <excludes>
+                                <exclude>dashboard/admin/*</exclude>
+                                <exclude>admin/*</exclude>   
+                                <exclude>common/*</exclude>           
+                            </excludes>
+                        </overlay>
+                        <overlay>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>financial-management</artifactId>
                             <excludes>
                                 <exclude>dashboard/admin/*</exclude>
                                 <exclude>admin/*</exclude>   

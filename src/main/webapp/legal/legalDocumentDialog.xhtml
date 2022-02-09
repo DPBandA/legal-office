@@ -1,6 +1,6 @@
 <!--
-Job Management & Tracking System (JMTS) 
-Copyright (C) 2017  D P Bennett & Associates Limited
+Legal Office (LO) 
+Copyright (C) 2022  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
@@ -35,7 +35,6 @@ Email: info@dpbennett.com.jm
         <link rel="stylesheet" href="../css/main.css" />
     </h:head>
     <h:body >  
-        <ui:include src="../common/longProcessDialog.xhtml"/>  
         <ui:include src="../common/commonDialogs.xhtml"/>  
 
         <h:form id="documentDialogForm">        
@@ -126,12 +125,11 @@ Email: info@dpbennett.com.jm
                                         listener="#{legalDocumentManager.updateDocument}" />
 
                             </p:autoComplete>                           
-                            <p:menuButton id="clientActionsMenu" icon="ui-icon-pencil" >
+                            <p:menuButton id="clientActionsMenu" 
+                                          icon="pi pi-pencil" >
                                 <p:menuitem value="Edit client"
-                                            icon="ui-icon-pencil" 
-                                            disabled="${!legalDocumentManager.isClientNameValid}"
-                                            onstart="PF('longProcessDialogVar').show();"     
-                                            oncomplete="PF('longProcessDialogVar').hide();"                                
+                                            icon="pi pi-pencil" 
+                                            disabled="${!legalDocumentManager.isClientNameValid}"                               
                                             actionListener="#{legalDocumentManager.editExternalClient}"  
                                             process="@this,client"                             
                                             title="Edit this client's detail">  
@@ -144,10 +142,8 @@ Email: info@dpbennett.com.jm
 
                                 <p:menuitem 
                                     value="Add new client"
-                                    icon="ui-icon-plus" 
-                                    onstart="PF('longProcessDialogVar').show();"        
-                                    oncomplete="PF('longProcessDialogVar').hide();"                
-                                    disabled="#{!legalDocumentManager.user.privilege.canAddClient}"
+                                    icon="pi pi-plus"                 
+                                    disabled="#{!legalDocumentManager.user.can('AddClient')}"
                                     actionListener="#{legalDocumentManager.createNewExternalClient}"                                            
                                     process="@this"
                                     title="Add a new client to the client database">
@@ -204,11 +200,9 @@ Email: info@dpbennett.com.jm
 
                             </p:autoComplete>
                             <p:spacer height="0" width="4"/>                           
-                            <p:menuButton icon="ui-icon-pencil" title="Edit or add new type">
+                            <p:menuButton icon="pi pi-pencil" title="Edit or add new type">
                                 <p:menuitem value="Edit"
-                                            icon="ui-icon-pencil" 
-                                            onstart="PF('longProcessDialogVar').show();"  
-                                            oncomplete="PF('longProcessDialogVar').hide();"
+                                            icon="pi pi-pencil" 
                                             actionListener="#{legalDocumentManager.editDocumentType}" 
                                             process="@this"
                                             title="Edit document type" >     
@@ -222,9 +216,7 @@ Email: info@dpbennett.com.jm
 
                                 <p:menuitem 
                                     value="New"
-                                    icon="ui-icon-plus" 
-                                    onstart="PF('longProcessDialogVar').show();" 
-                                    oncomplete="PF('longProcessDialogVar').hide();"
+                                    icon="pi pi-plus" 
                                     actionListener="#{legalDocumentManager.createNewDocumentType}"                                            
                                     process="@this"
                                     title="Add a new document type">
@@ -260,11 +252,10 @@ Email: info@dpbennett.com.jm
 
                             </p:autoComplete>
                             <p:spacer height="0" width="4"/>                           
-                            <p:menuButton icon="ui-icon-pencil" title="Edit or add new classification">
+                            <p:menuButton icon="pi pi-pencil" 
+                                          title="Edit or add new classification">
                                 <p:menuitem value="Edit"
-                                            icon="ui-icon-pencil" 
-                                            onstart="PF('longProcessDialogVar').show();"  
-                                            oncomplete="PF('longProcessDialogVar').hide();"
+                                            icon="pi pi-pencil" 
                                             actionListener="#{legalDocumentManager.editClassification}" 
                                             process="@this,classification"  
                                             title="Edit classification" >   
@@ -277,9 +268,7 @@ Email: info@dpbennett.com.jm
 
                                 <p:menuitem  
                                     value="New"
-                                    icon="ui-icon-plus" 
-                                    onstart="PF('longProcessDialogVar').show();" 
-                                    oncomplete="PF('longProcessDialogVar').hide();"
+                                    icon="pi pi-plus"
                                     actionListener="#{legalDocumentManager.createNewClassification}"                                            
                                     process="@this"
                                     title="Add a new classification">
