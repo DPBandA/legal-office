@@ -306,17 +306,15 @@ Email: info@dpbennett.com.jm
 
                         </p:calendar>
 
-                        <h:outputText value="Particulars" />
+                        <h:outputText value="Particulars" style="font-weight: bold;" />
                         <p:inputTextarea value="#{legalDocumentManager.currentDocument.description}"
                                          id="documentDescription"
                                          rows="3"
                                          autoResize="false"
                                          style="width: 300px">
 
-                            <ui:remove>
-                                <f:validator validatorId="requiredFieldValidator" />
-                            </ui:remove>
-
+                            <f:validator validatorId="requiredFieldValidator" />
+                            
                             <p:ajax event="change"
                                     listener="#{legalDocumentManager.updateDocument}"
                                     process="@this"/>
