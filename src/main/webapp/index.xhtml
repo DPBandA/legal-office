@@ -1,5 +1,5 @@
 <!--
-Client Management (CM)
+Legal Office (LO)
 Copyright (C) 2023  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
@@ -29,8 +29,8 @@ Email: info@dpbennett.com.jm
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Client Manager</title>     
-        <link rel="shortcut icon" type="image/x-icon" href="#{clientManager.appShortcutIconURL}" />
+        <title>Legal Office</title>     
+        <link rel="shortcut icon" type="image/x-icon" href="#{legalDocumentManager.appShortcutIconURL}" />
         <script type="text/javascript" src="js/javascripts.js" /> 
         <h:outputStylesheet library="webjars" name="primeflex/3.2.1/primeflex.min.css" />       
         <link rel="stylesheet" type="text/css" href="css/main.css" />       
@@ -38,10 +38,10 @@ Email: info@dpbennett.com.jm
     <h:body>
 
         <ui:include src="common/commonDialogs.xhtml" />          
-        <ui:include src="client/loginDialog.xhtml"/>         
+        <ui:include src="legal/loginDialog.xhtml"/>         
         <ui:include src="common/userProfileDialog.xhtml"/> 
 
-        <h:form id="appForm" rendered="#{clientManager.userLoggedIn}">   
+        <h:form id="appForm" rendered="#{legalDocumentManager.userLoggedIn}">   
 
             <p:growl id="growl3" life="5000" showDetail="true" />
             <p:panel>
@@ -53,17 +53,17 @@ Email: info@dpbennett.com.jm
                                 <div class="grid">
                                     <div class="col-12 md:col-3">
                                         <h:panelGroup style="float: left;margin-right: 10px;" >
-                                            <p:graphicImage value="#{clientManager.logoURL}"
+                                            <p:graphicImage value="#{legalDocumentManager.logoURL}"
                                                             class="logo"
-                                                            height="#{clientManager.logoURLImageHeight}" 
-                                                            width="#{clientManager.logoURLImageWidth}"/>
+                                                            height="#{legalDocumentManager.logoURLImageHeight}" 
+                                                            width="#{legalDocumentManager.logoURLImageWidth}"/>
                                         </h:panelGroup>
                                         <h:panelGrid columns="1" cellspacing="0" >   
 
-                                            <p:outputLabel value="Client Manager"
+                                            <p:outputLabel value="Legal Office"
                                                            class="header-text" />
 
-                                            <p:outputLabel value="Client Administration &amp; Management"
+                                            <p:outputLabel value="Legal Office Administration &amp; Management"
                                                            class="subheader-text" />  
 
                                         </h:panelGrid>
@@ -94,7 +94,7 @@ Email: info@dpbennett.com.jm
                                                         <p:ajax event="select" 
                                                                 update=":appForm:notificationBadge"
                                                                 oncomplete="PF('NotificationPanelVar').hide()"
-                                                                listener="#{clientManager.onNotificationSelect}" />
+                                                                listener="#{legalDocumentManager.onNotificationSelect}" />
 
                                                         <p:column>
                                                             <p:outputLabel value="#{notification.name}" 
@@ -108,7 +108,7 @@ Email: info@dpbennett.com.jm
                                             <p:spacer width="30"/>
                                             <p:menuButton iconPos="left"
                                                           icon="pi pi-user"
-                                                          title="#{clientManager.user.employee.firstName} #{clientManager.user.employee.lastName} (#{clientManager.user.username})"
+                                                          title="#{legalDocumentManager.user.employee.firstName} #{legalDocumentManager.user.employee.lastName} (#{legalDocumentManager.user.username})"
                                                           id="userMenu"
                                                           class="usermenu-button" >
 
@@ -118,7 +118,7 @@ Email: info@dpbennett.com.jm
                                                             icon="pi pi-cog"
                                                             value="Profile"
                                                             process="@this"/>  
-                                                <p:menuitem actionListener="#{clientManager.logout}"                                             
+                                                <p:menuitem actionListener="#{legalDocumentManager.logout}"                                             
                                                             icon="pi pi-sign-out"
                                                             value="Logout"
                                                             oncomplete="location.reload();"
@@ -135,13 +135,13 @@ Email: info@dpbennett.com.jm
 
                                         <p:defaultCommand target="defaultCommand" />
 
-                                        <ui:include src="dashboard/client/adminTab.xhtml" />
+                                        <ui:include src="dashboard/legal/adminTab.xhtml" />
 
                                     </div>    
                                     <div class="col-12 md:col-8">
                                         <p:tabView id="mainTabView"  
-                                                   rendered="#{clientManager.mainTabView.render}"
-                                                   value="#{clientManager.mainTabView.tabs}" 
+                                                   rendered="#{legalDocumentManager.mainTabView.render}"
+                                                   value="#{legalDocumentManager.mainTabView.tabs}" 
                                                    var="t" 
                                                    widgetVar="mainTabViewVar">
 
@@ -149,18 +149,22 @@ Email: info@dpbennett.com.jm
                                                     immediate="true"
                                                     process="@this"
                                                     update=""
-                                                    listener="#{clientManager.onMainViewTabClose}" />  
+                                                    listener="#{legalDocumentManager.onMainViewTabClose}" />  
 
                                             <p:ajax event="tabChange" 
                                                     immediate="true"
                                                     process="@this"                                
-                                                    listener="#{clientManager.onMainViewTabChange}" />  
+                                                    listener="#{legalDocumentManager.onMainViewTabChange}" />  
 
 
                                             <p:tab title="#{t.name}" closable="true"  >
 
-                                                <h:panelGroup rendered="#{t.id == 'Clients'}" >
-                                                    <ui:include src="client/clientsTab.xhtml" />                                                                
+                                                <h:panelGroup rendered="#{t.id == 'Document Browser'}">                                
+                                                    <ui:include src="legal/documentBrowser.xhtml" />   
+                                                </h:panelGroup>  
+
+                                                <h:panelGroup rendered="#{t.id == 'Reports'}" >
+                                                    <ui:include src="report/reportsTab.xhtml" />                                                                
                                                 </h:panelGroup>
 
                                                 <h:panelGroup rendered="#{t.id == 'System Administration'}" >
@@ -188,7 +192,7 @@ Email: info@dpbennett.com.jm
             </p:panel>
             <p:poll interval="60" 
                     global="false"
-                    listener="#{clientManager.handleKeepAlive}" />
+                    listener="#{legalDocumentManager.handleKeepAlive}" />
 
         </h:form>
 
