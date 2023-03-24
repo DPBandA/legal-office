@@ -71,20 +71,10 @@
                         <overlay>
                             <groupId>${project.groupId}</groupId>
                             <artifactId>report-management</artifactId>
-                            <excludes>
-                                <exclude>dashboard/admin/*</exclude>
-                                <exclude>admin/*</exclude>   
-                                <exclude>common/*</exclude>           
-                            </excludes>
                         </overlay>
                         <overlay>
                             <groupId>${project.groupId}</groupId>
                             <artifactId>financial-management</artifactId>
-                            <excludes>
-                                <exclude>dashboard/admin/*</exclude>
-                                <exclude>admin/*</exclude>   
-                                <exclude>common/*</exclude>           
-                            </excludes>
                         </overlay>
                         <overlay>
                             <groupId>${project.groupId}</groupId>
