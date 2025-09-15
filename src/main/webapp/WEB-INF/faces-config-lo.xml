@@ -20,21 +20,21 @@
     </navigation-rule> 
     
     <managed-bean>
-        <managed-bean-name>legalDocumentManager</managed-bean-name>
-        <managed-bean-class>jm.com.dpbennett.lo.manager.LegalDocumentManager</managed-bean-class>
+        <managed-bean-name>financeManager</managed-bean-name>
+        <managed-bean-class>jm.com.dpbennett.fm.manager.FinanceManager</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
-    
-    <managed-bean>
-        <managed-bean-name>humanResourceManager</managed-bean-name>
-        <managed-bean-class>jm.com.dpbennett.hrm.manager.HumanResourceManager</managed-bean-class>
-        <managed-bean-scope>session</managed-bean-scope>
-    </managed-bean> 
     
     <managed-bean>
         <managed-bean-name>clientManager</managed-bean-name>
         <managed-bean-class>jm.com.dpbennett.cm.manager.ClientManager</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>  
+    
+    <managed-bean>
+        <managed-bean-name>legalDocumentManager</managed-bean-name>
+        <managed-bean-class>jm.com.dpbennett.lo.manager.LegalDocumentManager</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
-      
+   
 </faces-config>

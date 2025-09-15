@@ -1,6 +1,6 @@
 <!--
-Job Management & Tracking System (JMTS) 
-Copyright (C) 2024  D P Bennett & Associates Limited
+LegalOffice (LO) 
+Copyright (C) 2025  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
@@ -38,7 +38,7 @@ Email: info@dpbennett.com.jm
                 process="@this" >
 
                 <p:ajax event="dialogReturn" 
-                        update=":appForm:mainTabView"
+                        update=":mainTabViewForm:mainTabView"
                         listener="#{legalDocumentManager.documentDialogReturn}" />
 
             </p:menuitem>
@@ -69,11 +69,12 @@ Email: info@dpbennett.com.jm
         </p:submenu>
 
         <p:submenu label="Clients" 
+                   rendered="#{systemManager.user.hasModule('clientManager')}"
                    icon="pi pi-users" >
 
             <p:menuitem
-                actionListener="#{clientManager.createNewClient}"                
-                rendered="#{clientManager.user.can('AddClient')}"
+                actionListener="#{legalDocumentManager.createNewClient}"                
+                rendered="#{systemManager.user.can('AddClient')}"
                 global="true" 
                 value="Client"
                 title="Create new client"
@@ -81,7 +82,7 @@ Email: info@dpbennett.com.jm
                 process="@this" >
 
                 <p:ajax event="dialogReturn" 
-                        update=":appForm:mainTabView:clientsTable" />
+                        update=":mainTabViewForm:mainTabView:clientsTable" />
 
             </p:menuitem>
 
@@ -93,142 +94,47 @@ Email: info@dpbennett.com.jm
                         actionListener="#{legalDocumentManager.openClientsTab}" 
                         process="@this" />
 
+         
         </p:submenu>
 
         <p:submenu label="Reports" 
+                   rendered="#{jobManager.user.hasModule('reportManager')}"
                    icon="pi pi-chart-bar" >  
 
             <p:menuitem value="Reports"
                         title="Open the Reports tab"
                         icon="pi pi-chart-bar"
-                        actionListener="#{reportManager.openReportDialog('Legal')}" 
+                        actionListener="#{reportManager.openReportDialog}" 
                         process="@this" />
 
             <p:menuitem value="Report Templates"
                         title="Open the Report Templates tab"
                         icon="pi pi-book"
-                        rendered="#{systemManager.user.hasModule('reportManager')}"
+                        rendered="#{systemManager.user.hasModule('systemManager')}"
                         actionListener="#{reportManager.openReportTemplatesTab}" 
                         process="@this" />
 
         </p:submenu>
 
+        <p:divider layout="vertical"/>
+
         <p:submenu rendered="#{systemManager.user.hasModule('systemManager')}"
                    label="System" 
                    icon="pi pi-server" >
 
-            <p:submenu label="Entity Managers" 
-                       icon="pi pi-database" >
-
-                <p:menuitem value="System Management (SM)"
-                            title="Edit SM entity manager"
-                            icon="pi pi-cog"
-                            actionListener="#{systemManager.editEM('SMEM')}" 
-                            process="@this" >
-
-                    <p:ajax event="dialogReturn" 
-                            update=""/>
-
-                </p:menuitem>
-
-                <p:menuitem value="Financial Management (FM)"
-                            title="Edit FM entity manager"
-                            icon="pi pi-cog"
-                            actionListener="#{systemManager.editEM('FMEM')}" 
-                            process="@this" >
-
-                    <p:ajax event="dialogReturn" 
-                            update=""/>
-
-                </p:menuitem>
-
-                <p:menuitem value="Job Management &amp; Tracking System (JMTS)"
-                            title="Edit JMTS entity manager"
-                            icon="pi pi-cog"
-                            actionListener="#{systemManager.editEM('JMTSEM')}" 
-                            process="@this" >
-
-                    <p:ajax event="dialogReturn" 
-                            update=""/>
-
-                </p:menuitem> 
-
-                <p:menuitem value="Client Management (CM)"
-                            title="Edit CM entity manager"
-                            icon="pi pi-cog"
-                            actionListener="#{systemManager.editEM('CMEM')}" 
-                            process="@this" >
-
-                    <p:ajax event="dialogReturn" 
-                            update=""/>
-
-                </p:menuitem> 
-
-                <p:menuitem value="Human Resource Management (HRM)"
-                            title="Edit HRM entity manager"
-                            icon="pi pi-cog"
-                            actionListener="#{systemManager.editEM('HRMEM')}" 
-                            process="@this" >
-
-                    <p:ajax event="dialogReturn" 
-                            update=""/>
-
-                </p:menuitem> 
-
-                <p:menuitem value="Report Management (RM)"
-                            title="Edit RM entity manager"
-                            icon="pi pi-cog"
-                            actionListener="#{systemManager.editEM('RMEM')}" 
-                            process="@this" >
-
-                    <p:ajax event="dialogReturn" 
-                            update=""/>
-
-                </p:menuitem> 
-
-                <p:menuitem value="Standards Compliance (SC)"
-                            title="Edit SC entity manager"
-                            icon="pi pi-cog"
-                            actionListener="#{systemManager.editEM('SCEM')}" 
-                            process="@this" >
-
-                    <p:ajax event="dialogReturn" 
-                            update=""/>
-
-                </p:menuitem> 
-
-                <p:menuitem value="LegalOffice (LO)"
-                            title="Edit LO entity manager"
-                            icon="pi pi-cog"
-                            actionListener="#{systemManager.editEM('LOEM')}" 
-                            process="@this" >
-
-                    <p:ajax event="dialogReturn" 
-                            update=""/>
-
-                </p:menuitem> 
-
-                <p:menuitem value="LabelPrint (LP)"
-                            title="Edit LP entity manager"
-                            icon="pi pi-cog"
-                            actionListener="#{systemManager.editEM('LPEM')}" 
-                            process="@this" >
-
-                    <p:ajax event="dialogReturn" 
-                            update=""/>
-
-                </p:menuitem> 
-
-            </p:submenu>
+            <p:menuitem 
+                actionListener="#{systemManager.mainTabView.openTab('System Administration')}" 
+                title="System administration" 
+                value="System Administration" 
+                icon="pi pi-server" />   
 
             <p:divider />
 
             <p:menuitem 
-                actionListener="#{systemManager.mainTabView.openTab('System Administration')}" 
-                title="System administration" 
-                rendered="#{systemManager.user.hasModule('systemManager')}"
-                value="System Administration" 
-                icon="pi pi-server" />   
+                onclick="PF('systemInfoDialog').show()"
+                title="System Information"                 
+                value="System Information" 
+                icon="pi pi-info-circle" />
 
         </p:submenu>
 
