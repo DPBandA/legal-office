@@ -1,6 +1,6 @@
 <!--
 Legal Office (Lo) 
-Copyright (C) 2023  D P Bennett & Associates Limited
+Copyright (C) 2025  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
@@ -24,81 +24,82 @@ Email: info@dpbennett.com.jm
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
-    <h:panelGrid columns="2" cellspacing="5" >
-        <p:outputLabel value="Search type" />            
-        <p:selectOneMenu value="#{legalDocumentManager.searchType}" >
+    <p:panel id="loSearchPanel" header="Search">
+        
+        <h:panelGrid columns="2" cellspacing="5" >
+            <p:outputLabel value="Type" />            
+            <p:selectOneMenu value="#{legalDocumentManager.searchType}" >
 
-            <f:selectItems value="#{legalDocumentManager.groupedSearchTypes}" />
+                <f:selectItems value="#{legalDocumentManager.groupedSearchTypes}" />
 
-            <p:ajax update="dateField,datePeriod,startSearchDate,endSearchDate" 
-                    listener="#{legalDocumentManager.updateSearchType}"
-                    global="false" 
-                    process="@this" />
+                <p:ajax update="dateField,datePeriod,startSearchDate,endSearchDate" 
+                        listener="#{legalDocumentManager.updateSearchType}"
+                        global="false" 
+                        process="@this" />
 
-        </p:selectOneMenu>
+            </p:selectOneMenu>
 
-        <p:outputLabel value="Date field" />
-        <p:selectOneMenu value="#{legalDocumentManager.dateSearchPeriod.dateField}" 
-                         id="dateField" >
-            <p:ajax                        
-                listener="#{legalDocumentManager.updateDateSearchField}"
-                global="false"
-                process="@this" />
+            <p:outputLabel value="Date" />
+            <p:selectOneMenu value="#{legalDocumentManager.dateSearchPeriod.dateField}" 
+                             title="Select the date field on which to search"
+                             id="dateField" >
+              
+                <f:selectItems value="#{legalDocumentManager.dateSearchFields}" />
 
-            <f:selectItems value="#{legalDocumentManager.allDateSearchFields}" />
+            </p:selectOneMenu>
 
-        </p:selectOneMenu>
+            <p:outputLabel value="Period" />               
+            <p:selectOneMenu value= "#{legalDocumentManager.dateSearchPeriod.name}" 
+                             id="datePeriod" >
 
-        <p:outputLabel value="Date period" />               
-        <p:selectOneMenu value= "#{legalDocumentManager.dateSearchPeriod.name}" 
-                         id="datePeriod" >
+                <p:ajax listener="#{legalDocumentManager.dateSearchPeriod.initDatePeriod}"
+                        global="false"
+                        update="startSearchDate,endSearchDate"
+                        process="@this" />
 
-            <p:ajax listener="#{legalDocumentManager.dateSearchPeriod.initDatePeriod}"
+                <f:selectItems value="#{legalDocumentManager.datePeriods}"/>
+
+            </p:selectOneMenu>
+            <p:outputLabel value="Start" />
+            <p:calendar id="startSearchDate"
+                        value="#{legalDocumentManager.dateSearchPeriod.startDate}"                    
+                        size="17"
+                        navigator="true"
+                        validator="requiredFieldValidator"
+                        disabled="#{legalDocumentManager.dateSearchPeriod.startDateDisabled}"
+                        pattern="MMM dd, yyyy" />
+
+            <p:outputLabel value="End" />
+            <p:calendar id="endSearchDate"
+                        value="#{legalDocumentManager.dateSearchPeriod.endDate}"
+                        size="17"
+                        navigator="true"
+                        validator="requiredFieldValidator"
+                        disabled="#{legalDocumentManager.dateSearchPeriod.endDateDisabled}"
+                        pattern="MMM dd, yyyy" />
+
+        </h:panelGrid>   
+
+        <p:inputText value="#{legalDocumentManager.searchText}"  
+                     id="searchText" >
+
+            <p:ajax event="keyup"
                     global="false"
-                    update="startSearchDate,endSearchDate"
-                    process="@this" />
+                    listener="#{legalDocumentManager.updateSearch}"
+                    process="@this"/>
 
-            <f:selectItems value="#{legalDocumentManager.datePeriods}"/>
+        </p:inputText>                    
 
-        </p:selectOneMenu>
-        <p:outputLabel value="Start" />
-        <p:calendar id="startSearchDate"
-                    value="#{legalDocumentManager.dateSearchPeriod.startDate}"                    
-                    size="17"
-                    navigator="true"
-                    validator="requiredFieldValidator"
-                    disabled="#{legalDocumentManager.dateSearchPeriod.startDateDisabled}"
-                    pattern="MMM dd, yyyy" />
+        <p:spacer width="5" />
+        <p:commandButton id="legalDocumentSearchButton"
+                         class="search-button"   
+                         actionListener="#{legalDocumentManager.doDefaultSearch}"
+                         update=":mainTabViewForm:mainTabView"
+                         icon="pi pi-search"
+                         process="@form" />
 
-        <p:outputLabel value="End" />
-        <p:calendar id="endSearchDate"
-                    value="#{legalDocumentManager.dateSearchPeriod.endDate}"
-                    size="17"
-                    navigator="true"
-                    validator="requiredFieldValidator"
-                    disabled="#{legalDocumentManager.dateSearchPeriod.endDateDisabled}"
-                    pattern="MMM dd, yyyy" />
+        <p:watermark value="Enter search text" for="searchText" />
 
-    </h:panelGrid>   
-
-    <p:inputText value="#{legalDocumentManager.searchText}"  
-                 id="searchText" >
-
-        <p:ajax event="keyup"
-                global="false"
-                listener="#{legalDocumentManager.updateSearch}"
-                process="@this"/>
-
-    </p:inputText>                    
-
-    <p:spacer width="5" />
-    <p:commandButton id="legalDocumentSearchButton"
-                     class="search-button"   
-                     actionListener="#{legalDocumentManager.doDefaultSearch}"
-                     update=":mainTabViewForm:mainTabView"
-                     icon="pi pi-search"
-                     process="@form" />
-
-    <p:watermark value="Enter search text" for="searchText" />
+    </p:panel>
 
 </html>
