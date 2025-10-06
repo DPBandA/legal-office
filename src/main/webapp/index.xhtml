@@ -207,6 +207,7 @@ Email: info@dpbennett.com.jm
 
                                 <p:accordionPanel id="dashboardAccordion" 
                                                   value="#{legalDocumentManager.dashboard.tabs}" 
+                                                  activeIndex="#{legalDocumentManager.dashboard.tabIndex}"
                                                   var="t"   
                                                   widgetVar="dashboardAccordionVar"
                                                   rendered="true"
@@ -257,6 +258,7 @@ Email: info@dpbennett.com.jm
                                         <p:tabView id="mainTabView"  
                                                    rendered="#{legalDocumentManager.mainTabView.render}"
                                                    value="#{legalDocumentManager.mainTabView.tabs}" 
+                                                   activeIndex="#{legalDocumentManager.mainTabView.tabIndex}"
                                                    var="t" 
                                                    dynamic="false"
                                                    widgetVar="mainTabViewVar">
@@ -276,7 +278,7 @@ Email: info@dpbennett.com.jm
 
                                                 <p:defaultCommand target="#{legalDocumentManager.defaultCommandTarget}" />
 
-                                                <h:panelGroup rendered="#{t.id == 'Document Browser'}">                                
+                                                <h:panelGroup rendered="#{t.id == 'Legal Documents'}">                                
                                                     <ui:include src="legal/documentBrowser.xhtml" />   
                                                 </h:panelGroup>  
 
