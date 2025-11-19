@@ -103,6 +103,7 @@ Email: info@dpbennett.com.jm
                                                  target="#{legalDocumentManager.selectedDocument}" />
 
                     <p:ajax event="dialogReturn" 
+                            listener="#{legalDocumentManager.doDefaultSearch}"
                             update="documentTable" />
 
                 </p:menuitem>
