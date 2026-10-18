@@ -4,7 +4,7 @@
 
     <groupId>jm.com.dpbennett</groupId>
     <artifactId>legal-office</artifactId>
-    <version>1.0.0</version>
+    <version>6.0.0</version>
     <packaging>war</packaging>
 
     <name>h.LO</name>
@@ -18,30 +18,30 @@
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>system-management-lib</artifactId>
-            <version>2.2.2</version>
+            <version>6.0.0</version>
         </dependency>  
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>system-management</artifactId>
-            <version>2.2.2</version>
+            <version>6.0.0</version>
             <type>war</type>
         </dependency> 
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>report-management</artifactId>
-            <version>2.0.0</version>
+            <version>6.0.0</version>
             <type>war</type>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>client-management</artifactId>
-            <version>3.0.0</version>
+            <version>6.0.0</version>
             <type>war</type>
         </dependency> 
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>financial-management</artifactId>
-            <version>2.0.0</version>
+            <version>6.0.0</version>
             <type>war</type>
         </dependency>
     </dependencies>
