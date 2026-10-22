@@ -36,13 +36,13 @@ Email: info@dpbennett.com.jm
         <ui:include src="../common/commonDialogs.xhtml"/>
 
         <h:form id="documentDialogForm">       
-            
+
             <p:growl id="document_dialog_growl" life="5000" showDetail="false" />
 
             <ui:include src="legalDocumentDialogToolbar.xhtml" />
 
-            <p:tabView id="docTabView"                  
-                       style="margin-top: 1px;margin-bottom: 1px;" >
+            <p:accordionPanel id="docTabView"                  
+                              style="margin-top: 1px;margin-bottom: 1px;" >
 
                 <p:tab title="General" >
                     <h:panelGrid columns="2" id="general">
@@ -412,7 +412,7 @@ Email: info@dpbennett.com.jm
                             <f:converter converterId="employeeConverter"/>
 
                             <f:attribute name="em" value="#{humanResourceManager.entityManager1}"/>
-                            
+
                             <p:ajax event="itemSelect"
                                     listener="#{legalDocumentManager.updateDocument}"
                                     process="@this"/>
@@ -494,10 +494,11 @@ Email: info@dpbennett.com.jm
 
                     </h:panelGrid>
                 </p:tab>
-            </p:tabView>
+
+            </p:accordionPanel>
 
             <ui:include src="legalDocumentDialogToolbar.xhtml" />
-            
+
         </h:form> 
 
     </ui:define>
