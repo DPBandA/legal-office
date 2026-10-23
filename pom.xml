@@ -15,35 +15,35 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>system-management-lib</artifactId>
-            <version>6.0.0</version>
-        </dependency>  
+      
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>system-management</artifactId>
             <version>6.0.0</version>
             <type>war</type>
         </dependency> 
+        
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>report-management</artifactId>
             <version>6.0.0</version>
             <type>war</type>
         </dependency>
+        
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>client-management</artifactId>
             <version>6.0.0</version>
             <type>war</type>
         </dependency> 
+        
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>financial-management</artifactId>
             <version>6.0.0</version>
             <type>war</type>
         </dependency>
+        
     </dependencies>
 
     <build>
