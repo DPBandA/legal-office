@@ -12,6 +12,14 @@
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
+        <from-view-id>/index-m.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>legalDocumentDialog-m</from-outcome>
+            <to-view-id>/legal/legalDocumentDialog-m.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>    
+    
+    <navigation-rule>
         <from-view-id>/index.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>legalDocumentDeleteConfirmDialog</from-outcome>
