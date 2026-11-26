@@ -60,7 +60,11 @@ Email: info@dpbennett.com.jm
                             <h:panelGroup rendered="#{t.id == 'Legal Documents'}">                                
                                 <ui:include src="legal/documentBrowser.xhtml" />   
                             </h:panelGroup>
-                         
+
+                            <h:panelGroup rendered="#{t.id == 'Documents'}" >
+                                <ui:include src="doc/documentsTab.xhtml" /> 
+                            </h:panelGroup>  
+
                             <h:panelGroup rendered="#{t.id == 'Clients'}" >
                                 <ui:include src="client/clientsTab.xhtml" />                                                                
                             </h:panelGroup>
